@@ -7,4 +7,3 @@ router.get('/', prophetsController.getAll);
 router.get('/:id', prophetsController.getSingle);
 
 module.exports = router;
-  
