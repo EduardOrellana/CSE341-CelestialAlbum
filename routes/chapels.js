@@ -8,7 +8,6 @@ function handleError(res, error) {
 }
 
 router.get('/', async (req, res) => {
-  //#swagger.tags = ['All Chapels']
   try {
     await chapelsController.getAll(req, res);
   } catch (error) {
@@ -17,7 +16,6 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  //#swagger.tags = ['Get one chapel']
   try {
     await chapelsController.getSingle(req, res);
   } catch (error) {
@@ -26,7 +24,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  //#swagger.tags = ['Post new Chapel']
   try {
     await chapelsController.createChapels(req, res);
   } catch (error) {
@@ -35,7 +32,6 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  //#swagger.tags = ['Update one Chapel']
   try {
     await chapelsController.updateChapels(req, res);
   } catch (error) {
@@ -44,7 +40,6 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  //#swagger.tags = ['Delete One Chapel']
   try {
     await chapelsController.deleteChapels(req, res);
   } catch (error) {
