@@ -1,222 +1,352 @@
-swagger: '2.0'
-info:
-  title: API for Celestial Album Project of Sariha and Erick
-  description: 'API Project Celestial Album: students: Sariha Hope and Erick Orellana'
-  version: 1.0.0
-host: cse341-celestialalbum-1.onrender.com
-basePath: /
-schemes:
-  - https
-paths:
-  /:
-    get:
-      tags:
-        - Hello World
-      description: ''
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: OK
-  /api-docs:
-    get:
-      tags:
-          - API Docs Documentation
-      description: 'API Docs documentation'
-      responses:
-        default:
-          description: ''
-  /chapels/:
-    get:
-      tags:
-          - Chapels
-      description: 'Get All Chapels'
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: OK
-    post:
-      tags:
-          - Chapels
-      description: 'Post one Chapel'
-      parameters:
-        - name: body
-          in: body
-          schema:
-            type: object
-            properties:
-              cityChapel:
-                example: any
-              stateTerritory:
-                example: any
-              streetName:
-                example: any
-              zipCode:
-                example: any
-      responses:
-        '204':
-          description: No Content
-        '500':
-          description: Internal Server Error
-  /chapels/{id}:
-    get:
-      tags:
-        - Chapels
-      description: 'Get One Chapel by ID'
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-      responses:
-        '200':
-          description: OK
-        '402':
-          description: Chapel not found
-        '500':
-          description: Server Error
-    put:
-      tags:
-        - Chapels
-      description: 'Update Chapel Information'
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-        - name: body
-          in: body
-          schema:
-            type: object
-            properties:
-              cityChapel:
-                example: any
-              stateTerritory:
-                example: any
-              streetName:
-                example: any
-              zipCode:
-                example: any
-      responses:
-        '204':
-          description: No Content
-        '402':
-          description: Chapel Not Found
-        '500':
-          description: Internal Server Error
-    delete:
-      tags:
-        - Chapels
-      description: 'Delete Chapel Item'
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-      responses:
-        '204':
-          description: No Content
-        '402':
-          description: Chapen Not Found
-        '500':
-          description: Internal Server Error
-  /prophets/:
-    get:
-      tags:
-        - Prophets
-      description: 'Get All Prophets'
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: OK
-    post:
-      tags:
-        - Prophets
-      description: 'Post new Prophet'
-      parameters:
-        - name: body
-          in: body
-          schema:
-            type: object
-            properties:
-              firstName:
-                example: any
-              lastName:
-                example: any
-              DateOfBirth:
-                example: any
-              DateOfDeath:
-                example: any
-      responses:
-        '204':
-          description: No Content
-        '500':
-          description: Internal Server Error
-  /prophets/{id}:
-    get:
-      tags:
-        - Prophets
-      description: 'Get one prophet by Id'
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-      responses:
-        '200':
-          description: OK
-        '402':
-          description: Phrophet not found
-        '500':
-          description: Server Error
-    put:
-      tags:
-        - Prophets
-      description: 'Update Prophet Information'
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-        - name: body
-          in: body
-          schema:
-            type: object
-            properties:
-              firstName:
-                example: any
-              lastName:
-                example: any
-              DateOfBirth:
-                example: any
-              DateOfDeath:
-                example: any
-      responses:
-        '204':
-          description: No Content
-        '402':
-          description: Prophet not found
-        '500':
-          description: Internal Server Error
-    delete:
-      tags:
-        - Prophets
-      description: 'Delete Prohept'
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-      responses:
-        '204':
-          description: No Content
-        '402':
-          description: Prophet not found
-        '500':
-          description: Internal Server Error
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API for Celestial Album Project of Sariha and Erick",
+    "description": "API Project Celestial Album: students: Sariha Hope and Erick Orellana",
+    "version": "1.0.0"
+  },
+  "host": "cse341-celestialalbum-1.onrender.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Hello World"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "tags": [
+          "API Docs Documentation"
+        ],
+        "description": "API Docs documentation",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/chapels/": {
+      "get": {
+        "tags": [
+          "Chapels"
+        ],
+        "description": "Get All Chapels",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Chapels"
+        ],
+        "description": "Post one Chapel",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cityChapel": {
+                  "example": "any"
+                },
+                "stateTerritory": {
+                  "example": "any"
+                },
+                "streetName": {
+                  "example": "any"
+                },
+                "zipCode": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/chapels/{id}": {
+      "get": {
+        "tags": [
+          "Chapels"
+        ],
+        "description": "Get One Chapel by ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "402": {
+            "description": "Chapel not found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Chapels"
+        ],
+        "description": "Update Chapel Information",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cityChapel": {
+                  "example": "any"
+                },
+                "stateTerritory": {
+                  "example": "any"
+                },
+                "streetName": {
+                  "example": "any"
+                },
+                "zipCode": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "402": {
+            "description": "Chapel Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Chapels"
+        ],
+        "description": "Delete Chapel Item",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "402": {
+            "description": "Chapen Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/prophets/": {
+      "get": {
+        "tags": [
+          "Prophets"
+        ],
+        "description": "Get All Prophets",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Prophets"
+        ],
+        "description": "Post new Prophet",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "DateOfBirth": {
+                  "example": "any"
+                },
+                "DateOfDeath": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/prophets/{id}": {
+      "get": {
+        "tags": [
+          "Prophets"
+        ],
+        "description": "Get one prophet by Id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "402": {
+            "description": "Phrophet not found"
+          },
+          "500": {
+            "description": "Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Prophets"
+        ],
+        "description": "Update Prophet Information",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "DateOfBirth": {
+                  "example": "any"
+                },
+                "DateOfDeath": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "402": {
+            "description": "Prophet not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Prophets"
+        ],
+        "description": "Delete Prohept",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "402": {
+            "description": "Prophet not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
