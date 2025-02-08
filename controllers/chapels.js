@@ -18,7 +18,56 @@ const getSingle = async (req, res) => {
        });
 };
 
+
+const createChapels = async (req, res) => {
+    // #swagger.tags=['chapels']
+            const chapel = {
+                    cityChapel: req.body.cityChapel,
+                    stateTerritory: req.body.stateTerritory,
+                    streetName: req.body.streetName,
+                    zipCode: req.body.zipCode
+                };    
+            const result = await mongodb.getDatabase().db().collection('chapels').insertOne(chapel);
+                if (result.acknowledged) {
+                        res.status(204).send();
+                } else {
+                        res.status(500).json(result.error || 'Failed to create chapels');
+                }
+};
+
+const updateChapels = async (req, res) => {
+    // #swagger.tags=['chapels']
+        const userId = new ObjectId(req.params.id);
+        const chapel = {
+            cityChapel: req.body.cityChapel,
+            stateTerritory: req.body.stateTerritory,
+            streetName: req.body.streetName,
+            zipCode: req.body.zipCode
+        };
+        const result = await mongodb.getDatabase().db().collection('chapels').replaceOne({_id: userId}, chapel);
+            if (result.modifiedCount > 0) {
+                    res.status(204).send();
+            } else {
+                    res.status(500).json(result.error || 'Failed to update chapels');
+        }
+};
+
+const deleteChapels = async (req, res) => {
+    // #swagger.tags=['chapels']
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb.getDatabase().db().collection('chapels').deleteOne({_id: userId});
+        if (result.deletedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(500).json(result.error || 'Failed to delete chapels');
+        }
+};
+
 module.exports = {
     getAll,
-    getSingle
+    getSingle,
+    createChapels,
+    updateChapels,
+    deleteChapels
+
 };
