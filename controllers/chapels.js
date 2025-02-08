@@ -20,7 +20,6 @@ const getSingle = async (req, res) => {
 
 
 const createChapels = async (req, res) => {
-    // #swagger.tags=['chapels']
     const chapel = {
         cityChapel: req.body.cityChapel,
         stateTerritory: req.body.stateTerritory,
@@ -36,7 +35,6 @@ const createChapels = async (req, res) => {
 };
 
 const updateChapels = async (req, res) => {
-    // #swagger.tags=['chapels']
     const userId = new ObjectId(req.params.id);
     const chapel = {
         cityChapel: req.body.cityChapel,
@@ -53,7 +51,6 @@ const updateChapels = async (req, res) => {
 };
 
 const deleteChapels = async (req, res) => {
-    // #swagger.tags=['chapels']
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection('chapels').deleteOne({ _id: userId });
     if (result.deletedCount > 0) {
