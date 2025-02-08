@@ -5,7 +5,7 @@ const doc = {
         title: "API for Celestial Album Project of Sariha and Erick",
         description: "API Project Celestial Album: students: Sariha Hope and Erick Orellana",
     },
-    host: "cse341-celestialalbum-1.onrender.com/",
+    host: "cse341-celestialalbum-1.onrender.com",
     // host: "http://localhost:3000/",
     schemes: ['https'],
     basePath: "/data"
