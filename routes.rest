@@ -1,0 +1,68 @@
+//LocalHost 
+
+### Get all chapels 
+GET http://localhost:3000/chapels
+
+### Get chapel by id 
+Get http://localhost:3000/chapels/67a2d61180c9fbe943f65782
+
+### Create a new chapel
+POST http://localhost:3000/chapels HTTP/1.1 
+Content-Type: application/json
+
+{
+    "cityChapel": "Nevada",
+    "stateTerritory": "",
+    "streetName": "1234 Main St",
+    "zipCode": "12345"
+}
+
+
+### Update a chapels
+PUT http://localhost:3000/chapels/67a6bdd19408011a48541d89 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "cityChapel": "Nevada",
+    "stateTerritory": "Nevada",
+    "streetName": "1234 Main St",
+    "zipCode": "12345"
+}
+
+### Delete a chapel
+DELETE http://localhost:3000/chapels/67a6bd44bde907e4ae4e8d5c HTTP/1.1
+
+
+
+
+### Get all chapels 
+GET http://localhost:3000/prophets
+
+### Get chapel by id 
+Get http://localhost:3000/prophets/67a2d6f180c9fbe943f65783
+
+### Create a new chapel
+POST http://localhost:3000/prophets HTTP/1.1 
+Content-Type: application/json
+
+{
+  "firstName": "Joseph",
+  "lastName": "Fielding Smith",
+  "DateOfBirth": "00/00/0000",
+  "DateOfDeath": "00/00/0000"
+}
+
+
+### Update a chapels
+PUT http://localhost:3000/prophets/67a7b23ed741664a5ba794f5 HTTP/1.1 
+Content-Type: application/json
+
+{
+  "firstName": "Joseph",
+  "lastName": "Fielding Smith",
+  "DateOfBirth": "00/00/0000",
+  "DateOfDeath": "00/00/0000"
+}
+
+### Delete a chapel
+DELETE http://localhost:3000/prophets/67a7b207d741664a5ba794f4 HTTP/1.1
