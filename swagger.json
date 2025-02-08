@@ -5,7 +5,7 @@
     "description": "API Project Celestial Album: students: Sariha Hope and Erick Orellana",
     "version": "1.0.0"
   },
-  "host": "cse341-celestialalbum-1.onrender.com/",
+  "host": "cse341-celestialalbum-1.onrender.com",
   "basePath": "/data",
   "schemes": [
     "https"
@@ -64,7 +64,7 @@
         }
       }
     },
-    "/api-docs/api-docs": {
+    "/api-docs": {
       "get": {
         "description": "",
         "responses": {
