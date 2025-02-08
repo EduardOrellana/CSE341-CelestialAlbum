@@ -3,48 +3,53 @@ const router = express.Router();
 const chapelsController = require('../controllers/chapels');
 
 function handleError(res, error) {
-  console.error(error); 
+  console.error(error);
   res.status(500).json({ message: "Internal Server Error", error: error.message });
 }
-  
+
 router.get('/', async (req, res) => {
-    try {
-      await chapelsController.getAll(req, res);
-    } catch (error) {
-      handleError(res, error);
-    }
-  });
-  
-  router.get('/:id', async (req, res) => {
-    try {
-      await chapelsController.getSingle(req, res);
-    } catch (error) {
-      handleError(res, error);
-    }
-  });
-  
-  router.post('/', async (req, res) => {
-    try {
-      await chapelsController.createChapels(req, res);
-    } catch (error) {
-      handleError(res, error);
-    }
-  });
-  
-  router.put('/:id', async (req, res) => {
-    try {
-      await chapelsController.updateChapels(req, res);
-    } catch (error) {
-      handleError(res, error);
-    }
-  });
-  
-  router.delete('/:id', async (req, res) => {
-    try {
-      await chapelsController.deleteChapels(req, res);
-    } catch (error) {
-      handleError(res, error);
-    }
-  });
+  //#swagger.tags = ['All Chapels']
+  try {
+    await chapelsController.getAll(req, res);
+  } catch (error) {
+    handleError(res, error);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  //#swagger.tags = ['Get one chapel']
+  try {
+    await chapelsController.getSingle(req, res);
+  } catch (error) {
+    handleError(res, error);
+  }
+});
+
+router.post('/', async (req, res) => {
+  //#swagger.tags = ['Post new Chapel']
+  try {
+    await chapelsController.createChapels(req, res);
+  } catch (error) {
+    handleError(res, error);
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  //#swagger.tags = ['Update one Chapel']
+  try {
+    await chapelsController.updateChapels(req, res);
+  } catch (error) {
+    handleError(res, error);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  //#swagger.tags = ['Delete One Chapel']
+  try {
+    await chapelsController.deleteChapels(req, res);
+  } catch (error) {
+    handleError(res, error);
+  }
+});
 
 module.exports = router;
