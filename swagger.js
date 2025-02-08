@@ -8,7 +8,7 @@ const doc = {
     host: "cse341-celestialalbum-1.onrender.com",
     // host: "http://localhost:3000/",
     schemes: ['https'],
-    basePath: "/data"
+    basePath: "/"
 };
 
 const outputFile = './swagger.json';
