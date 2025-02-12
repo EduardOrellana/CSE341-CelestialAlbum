@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const prophetsController = require('../controllers/prophets');
+const {isAuthenticated} = require('../middleware/authenticate');
 
 function handleError(res, error) {
     console.error(error);
@@ -24,7 +25,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', isAuthenticated, async (req, res) => {
     try {
         await prophetsController.createProphets(req, res);
     } catch (error) {
@@ -32,7 +33,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', isAuthenticated,  async (req, res) => {
     try {
         await prophetsController.updateProphets(req, res);
     } catch (error) {
@@ -40,7 +41,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
     try {
         await prophetsController.deleteProphets(req, res);
     } catch (error) {
