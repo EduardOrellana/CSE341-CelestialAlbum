@@ -19,6 +19,16 @@ router.use('/prophets',
     require('./prophets')
 );
 
+router.use('/temples',
+    require('./temples')
+);
+
+router.use('/scriptures',
+    require('./scriptures')
+);
+
+
+
 router.get('login', passport.authenticate, (req, res) => {});
 
 router.get('logout', (req, res, next) => {

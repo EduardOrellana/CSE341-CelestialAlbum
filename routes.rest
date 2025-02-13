@@ -1,5 +1,5 @@
 //LocalHost 
-
+# Chapels
 ### Get all chapels 
 GET http://localhost:3000/chapels
 
@@ -33,15 +33,15 @@ Content-Type: application/json
 DELETE http://localhost:3000/chapels/67a6bd44bde907e4ae4e8d5c HTTP/1.1
 
 
+# prophets
 
-
-### Get all chapels 
+### Get all prophets 
 GET http://localhost:3000/prophets
 
-### Get chapel by id 
+### Get prophet by id 
 Get http://localhost:3000/prophets/67a2d6f180c9fbe943f65783
 
-### Create a new chapel
+### Create a new prophet
 POST http://localhost:3000/prophets HTTP/1.1 
 Content-Type: application/json
 
@@ -53,7 +53,7 @@ Content-Type: application/json
 }
 
 
-### Update a chapels
+### Update a prophet
 PUT http://localhost:3000/prophets/67a7b23ed741664a5ba794f5 HTTP/1.1 
 Content-Type: application/json
 
@@ -64,5 +64,82 @@ Content-Type: application/json
   "DateOfDeath": "00/00/0000"
 }
 
-### Delete a chapel
+### Delete a prophets
 DELETE http://localhost:3000/prophets/67a7b207d741664a5ba794f4 HTTP/1.1
+
+
+
+# Temples
+
+### Get all temples
+GET http://localhost:3000/temples
+
+### Get temple by id 
+Get http://localhost:3000/temples/67a2d7d780c9fbe943f65785
+
+### Create a new temple
+POST http://localhost:3000/temples HTTP/1.1 
+Content-Type: application/json
+
+{
+        "NameOfTemple":"Manhattan New York Temple",
+        "CityLocation": "New York City",
+        "StateRegionTerritory": "New York",
+        "Country": "United States",
+        "dateOfAnnouncment": "8/7/2002",                         
+        "whoDedicated": "Gordon B. Hinckley",
+        "DateOfDedication": "6/13/2004"
+}
+
+
+### Update a temples
+PUT http://localhost:3000/temples/67ad79f35ad17e1a21c40f4a HTTP/1.1 
+Content-Type: application/json
+
+{
+        "NameOfTemple":"Auckland New Zealand Temple",
+        "CityLocation": "Manukau",
+        "StateRegionTerritory": "Auckland",
+        "Country": "New Zealand",
+        "dateOfAnnouncment": "10/7/2018",                         
+        "whoDedicated": "Patrick Kearon",
+        "DateOfDedication": "4/13/2025"
+}
+
+### Delete a temples
+DELETE http://localhost:3000/temples/67ad7aa55ad17e1a21c40f4b HTTP/1.1
+
+
+# Scriptures
+
+### Get all scriptures
+GET http://localhost:3000/scriptures
+
+### Get scripture by id 
+Get http://localhost:3000/scriptures/67a2d76980c9fbe943f65784
+
+### Create a new scriptures
+POST http://localhost:3000/scriptures HTTP/1.1 
+Content-Type: application/json
+
+{
+    "BookOfScripture": "Bible",
+    "NameOfBook": "John",
+    "Chapter": "3",
+    "Verse": "15"
+}
+
+
+### Update a scriptures
+PUT http://localhost:3000/scriptures/67a2d76980c9fbe943f65784 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "BookOfScripture": "Book of Mormon",
+    "NameOfBook": "Ether",
+    "Chapter": "12",
+    "Verse": "4"
+}
+
+### Delete a scriptures
+DELETE http://localhost:3000/scriptures/67ad7c3c5ad17e1a21c40f4d HTTP/1.1
