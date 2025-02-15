@@ -2,7 +2,6 @@ const passport = require('passport');
 
 const router = require('express').Router();
 
-
 router.get('/', (req, res) => {
     res.send('Hello World!')
 });
@@ -27,14 +26,12 @@ router.use('/scriptures',
     require('./scriptures')
 );
 
+router.get('/login', passport.authenticate('github'), (req, res) => { res.send('Loggin...') });
 
-
-router.get('login', passport.authenticate, (req, res) => {});
-
-router.get('logout', (req, res, next) => {
-    req.logout(function(err){
+router.get('/logout', (req, res, next) => {
+    req.logout(function (err) {
         if (err) { return next(err); }
-        res.redirect('/');     
+        res.redirect('/');
     });
 });
 
