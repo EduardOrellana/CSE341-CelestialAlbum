@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const prophetsController = require('../controllers/prophets');
+const scripturesController = require('../controllers/scriptures');
 const {isAuthenticated} = require('../middleware/authenticate');
 
 function handleError(res, error) {
@@ -11,7 +11,7 @@ function handleError(res, error) {
 
 router.get('/', async (req, res) => {
     try {
-        await prophetsController.getAll(req, res);
+        await scripturesController.getAll(req, res);
     } catch (error) {
         handleError(res, error);
     }
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        await prophetsController.getSingle(req, res);
+        await scripturesController.getSingle(req, res);
     } catch (error) {
         handleError(res, error);
     }
@@ -27,23 +27,23 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', isAuthenticated, async (req, res) => {
     try {
-        await prophetsController.createProphets(req, res);
+        await scripturesController.createScriptures(req, res);
     } catch (error) {
         handleError(res, error);
     }
 });
 
-router.put('/:id', isAuthenticated,  async (req, res) => {
+router.put('/:id', isAuthenticated, async (req, res) => {
     try {
-        await prophetsController.updateProphets(req, res);
+        await scripturesController.updateScriptures(req, res);
     } catch (error) {
         handleError(res, error);
     }
 });
 
-router.delete('/:id', isAuthenticated, async (req, res) => {
+router.delete('/:id', isAuthenticated,  async (req, res) => {
     try {
-        await prophetsController.deleteProphets(req, res);
+        await scripturesController.deleteScriptures(req, res);
     } catch (error) {
         handleError(res, error);
     }
