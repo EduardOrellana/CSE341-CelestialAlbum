@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
 const templesController = require('../controllers/temples');
-const {isAuthenticated} = require('../middleware/authenticate');
+const { isAuthenticated } = require('../middleware/authenticate');
+const { validateTemple } = require('../middleware/validator');
 
 function handleError(res, error) {
     console.error(error);
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', isAuthenticated, async (req, res) => {
+router.post('/', isAuthenticated, validateTemple, async (req, res) => {
     try {
         await templesController.createTemples(req, res);
     } catch (error) {
@@ -33,7 +33,7 @@ router.post('/', isAuthenticated, async (req, res) => {
     }
 });
 
-router.put('/:id', isAuthenticated, async (req, res) => {
+router.put('/:id', isAuthenticated, validateTemple, async (req, res) => {
     try {
         await templesController.updateTemples(req, res);
     } catch (error) {
