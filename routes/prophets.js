@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
 const prophetsController = require('../controllers/prophets');
-const {isAuthenticated} = require('../middleware/authenticate');
+const { isAuthenticated } = require('../middleware/authenticate');
+const { validateProphet } = require('../middleware/validator');
 
 function handleError(res, error) {
     console.error(error);
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', isAuthenticated, async (req, res) => {
+router.post('/', isAuthenticated, validateProphet, async (req, res) => {
     try {
         await prophetsController.createProphets(req, res);
     } catch (error) {
@@ -33,7 +33,7 @@ router.post('/', isAuthenticated, async (req, res) => {
     }
 });
 
-router.put('/:id', isAuthenticated,  async (req, res) => {
+router.put('/:id', isAuthenticated, validateProphet, async (req, res) => {
     try {
         await prophetsController.updateProphets(req, res);
     } catch (error) {

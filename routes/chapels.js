@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const chapelsController = require('../controllers/chapels');
-const {isAuthenticated} = require('../middleware/authenticate');
+const { isAuthenticated } = require('../middleware/authenticate');
+const { validateChapel } = require('../middleware/validator');
 
 function handleError(res, error) {
   console.error(error);
@@ -24,7 +25,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', isAuthenticated, async (req, res) => {
+router.post('/', isAuthenticated, validateChapel, async (req, res) => {
   try {
     await chapelsController.createChapels(req, res);
   } catch (error) {
@@ -32,7 +33,7 @@ router.post('/', isAuthenticated, async (req, res) => {
   }
 });
 
-router.put('/:id', isAuthenticated, async (req, res) => {
+router.put('/:id', isAuthenticated, validateChapel, async (req, res) => {
   try {
     await chapelsController.updateChapels(req, res);
   } catch (error) {
@@ -40,7 +41,7 @@ router.put('/:id', isAuthenticated, async (req, res) => {
   }
 });
 
-router.delete('/:id', isAuthenticated,  async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
   try {
     await chapelsController.deleteChapels(req, res);
   } catch (error) {

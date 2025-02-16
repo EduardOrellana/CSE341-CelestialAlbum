@@ -18,7 +18,6 @@ const getSingle = async (req, res) => {
     });
 };
 
-
 const createChapels = async (req, res) => {
     const chapel = {
         cityChapel: req.body.cityChapel,
@@ -66,5 +65,4 @@ module.exports = {
     createChapels,
     updateChapels,
     deleteChapels
-
 };
