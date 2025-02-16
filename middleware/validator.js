@@ -4,7 +4,7 @@ const validateChapel = [
     check('cityChapel').isString().isLength({ min: 3 }).notEmpty(),
     check('stateTerritory').isString().isLength({ min: 3 }).notEmpty,
     check('streetName').isString().isLength({ min: 3 }).notEmpty(),
-    check('zipCode').isPostalCode().isLength({ min: 3 }).notEmpty(),
+    check('zipCode').isNumeric().isLength({ min: 3 }).notEmpty(),
 
     (req, res, next) => {
         const errors = validationResult(req);
